@@ -17,3 +17,6 @@
 
 #include "Panacea/Panacea.event"
 // by MintX
+
+#include "StatusExpansion/StatusExpansion.event"
+// by Sme
