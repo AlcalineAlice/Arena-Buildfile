@@ -6,7 +6,7 @@
 #include "ExtendWeaponDescBox/Installer.event"
 // by Vesly
 
-//#include "ChapterScreenPokémblem/ChapterScreen.event"
+#include "ChapterScreenPokémblem/ChapterScreen.event"
 // by Huichelaar and Vesly
 
 #include "SupplyView/SupplyView.event"
