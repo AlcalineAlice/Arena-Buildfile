@@ -135,6 +135,7 @@ POIN StatusNameTextIDTable
 
 ORG $276C0
 jumpToHack(NewBlinkyStatusIcons)
+// comment line above to fix error. IDK why this happens. I just want to change the icon for Freeze -Alice
 
 POP
 
