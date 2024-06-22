@@ -54,6 +54,10 @@ ldr r1,[r1,#0x28]
 orr r0,r1
 mov r6,r0 @r6= char/class ability word
 
+ldr r0,=#0xF0070000
+tst r0,r6
+beq CannotWield @don't run the loop if we don't have any weapon locks set, we know we can't use it since to reach this point it needs to have a lock
+
 mov r1,#0xFF
 and r1,r5
 mov r0,#0x24
@@ -108,10 +112,10 @@ IsUnitStatused:
 mov r0,r4
 add r0,#0x30
 ldrb r1,[r0] @This is the status byte?
-mov r0,#0xF @status 0xF = stone
+mov r0,#0x1F @status bitmask
 and r0,r1 
 ldr r3,ItemTable 
-cmp r0,#3 
+cmp r0,#3 @checking for Sleep status, can't attack if sleeped
 bne PrepareExternalLoop
 mov r1,#0xFF
 and r1,r5
@@ -157,18 +161,10 @@ mov r1,r5
 mov r2,r6
 mov lr,r3
 .short 0xF800
-@Returns 0 if cannot wield, 1 if can, and 2 if soft lock exists. 
-@We return 2 for soft lock because of the amische skill, which returns 1 if the unit can use the weapon i.e. they do not have the skill
 cmp r0,#0
 beq CannotWield
-@Soft lock exists, so we exit and set r0 to 1 so the weapon can be used
-cmp r0,#2
-beq ExitLoopSoft
 add r7,#4
 b ExternalLoopStart
-
-ExitLoopSoft:
-mov r0,#1
 
 ExitLoop:
 mov r1,#1

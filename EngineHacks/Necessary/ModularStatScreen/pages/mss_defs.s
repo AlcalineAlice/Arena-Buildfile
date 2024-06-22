@@ -68,13 +68,13 @@
 .equ DrawWeaponRank, 0x08087788
 
 @RAM
+.equ DebuffTable, 0x203F100
 .equ gActiveBattleUnit, 0x203A4EC
 .equ StatScreenStruct, 0x2003BFC
 .equ BgBitfield, 0x300000D
 .equ TileBufferBase, 0x2003C2C
 .equ tile_origin, 0x2003C94
 .equ gpStatScreenPageBg0Map, 0x2003D2C
-.equ gpStatScreenPageBg1Map, 0x200422C
 .equ gpStatScreenPageBg2Map, 0x200472C
 .equ gGenericBuffer, 0x2020188
 .equ gBg0MapBuffer, 0x2022CA8
@@ -116,27 +116,11 @@
   mov     r7, r8
   push    {r7}
   add     sp, #-0x50     
-  ldr     r7, =TileBufferBase     @r7 contains the latest buffer. starts at 2003c2c.
+  ldr     r7, =TileBufferBase @r7 contains the latest buffer. starts at 2003c2c.
   ldr     r5, =StatScreenStruct
   ldr     r0, [r5, #0xC]
-  mov     r8, r0                  @r8 contains the current unit's data
+  mov     r8, r0              @r8 contains the current unit's data
   clear_buffers
-  ldr     r0, =SSS_Flag
-  ldr     r0, [r0]
-  cmp     r0, #0x0                  @ If no Scrolling StatScreen, no TSA unpackaging.
-  beq     PageStartEnd
-    ldr     r0, =StatScreenStruct   @Update PageTSA. TODO make depend on condition SSS is defined!
-    ldrb    r0, [r0]                @r0 contains current pagenumber.
-    lsl     r0, #0x2
-    ldr     r1, =SSS_PageTSATable
-    ldr     r0, [r0, r1]            @pointer to TSA for right page.
-    ldr     r1, =gGenericBuffer
-    blh     Decompress
-    ldr     r0, =gpStatScreenPageBg1Map
-    ldr     r1, =gGenericBuffer
-    mov     r2, #0x0
-    blh     BgMap_ApplyTsa          @ Apply right page tsa.
-  PageStartEnd:
 .endm
 
 .macro page_end
@@ -700,7 +684,7 @@
   cmp     r2, #0
   beq     NoStatusCount
   ldr     r0, =(0x2003ca2+(0x20*2*\tile_y)+(2*\tile_x))
-  lsr     r2, #4
+  lsr     r2, #5
   mov     r1, #0
   blh     DrawUiSmallNumber
   NoStatusCount:
@@ -733,20 +717,10 @@
 .endm
 
 .macro draw_stats_box showBallista=0
-  ldr     r0, =SSS_Flag
-  ldr     r0, [r0]
-  cmp     r0, #0x0
-  beq     DefaultBox
-    ldr     r0, =SSS_StatsBoxTSA
-    b       DecompressBoxTSA
-  DefaultBox:
-    ldr     r0, =#0x8A02204   @box TSA
-  DecompressBoxTSA:
+  ldr     r0, =#0x8A02204     @box TSA
   ldr     r4, =gGenericBuffer
   mov     r1, r4
   blh     Decompress
-  ldr r0, [r6, #0xC]
-blh DrawUnitEquippedItem
   ldr     r0, =#0x20049EE     @somewhere on the bgmap
   mov     r2, #0xC1
   lsl     r2, r2, #0x6
@@ -812,8 +786,7 @@ blh DrawUnitEquippedItem
   mov     r2, #0xC1
   lsl     r2, r2, #0x6
   blh     BgMap_ApplyTsa
-  ldr r0, [r6, #0xC]
-blh DrawUnitEquippedItem
+  
   cmp     r5, #0x0
   bne     SS_DoneEquipHighlightBar
   
@@ -929,9 +902,6 @@ blh DrawUnitEquippedItem
   cmp     r4, #0x7
   ble     loc_0x8087660
   
-  b SkipPool
-.ltorg
-SkipPool:
 .endm
 
 .macro draw_items_text showBallista=0
@@ -991,8 +961,6 @@ SkipPool:
   
   GorgonEggSkip_ItemList:
   b       SS_FinishItemsList
-  
-  .ltorg
   
   SS_LoopItemsList:
   ldr     r2, [r7, #0xC]
@@ -1071,17 +1039,6 @@ SkipPool:
   ldr     r1, =0x6001380
   ldr     r2, =0x1000a68
   swi     0xC @clear vram
-  ldr     r0, =SSS_Flag
-  ldr     r0, [r0]
-  cmp     r0, #0x0                  @ If no Scrolling StatScreen, no TSA clearing.
-  beq     ClearBuffersEnd
-    mov     r0, #0
-    str     r0, [sp]
-    mov     r0, sp
-    ldr     r1, =gpStatScreenPageBg1Map
-    ldr     r2, =0x1000140
-    swi     0xC @clear BG1TSA (0x878CC only clears BG0 and BG2)
-  ClearBuffersEnd:
 .endm
 
 

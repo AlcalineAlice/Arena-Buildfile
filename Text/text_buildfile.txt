@@ -143,10 +143,10 @@ not be stolen.[.][X]
 
 //Status Expansion text entries
 
-## EnfeebleName
+## EnfeebleStatusName
 Feeble[X]
 
-## EnfeebleDesc
+## EnfeebleStatusDesc
 Oof.... So heavy...[N]
 Stats are lowered...[X]
 
