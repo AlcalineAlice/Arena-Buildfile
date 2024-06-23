@@ -17,3 +17,9 @@
 
 #include "Panacea/Panacea.event"
 // by MintX
+
+#include "InlineHacks/Installer.event"
+// by Contro
+
+#include "ResTerrainWindow/Installer.event"
+// by Contro
