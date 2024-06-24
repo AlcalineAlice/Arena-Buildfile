@@ -26,3 +26,6 @@
 
 #include "FE8_Stealable_Droppable/Display Droppable Item.event"
 // by Scraiza
+
+#include "StatusExpansion/StatusExpansion.event"
+// by Sme
