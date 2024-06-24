@@ -2,7 +2,7 @@
 
 SetStatusName(FreezeStatusID,FreezeStatusName)
 SetStatusDesc(FreezeStatusID,FreezeStatusDesc)
-SetStatusBlinkyIconFunc(FreezeStatusID,BlinkyIconFuncSleepIcon)
+SetStatusBlinkyIconFunc(FreezeStatusID,BlinkyIconFuncSilenceIcon)
 
 //Define text IDs for name and desc
 //put the following in the mov getter in place of what's normally there for freeze

@@ -2,7 +2,7 @@
 
 SetStatusName(HexingRodStatusID,HexingRodStatusName)
 SetStatusDesc(HexingRodStatusID,HexingRodStatusDesc)
-SetStatusBlinkyIconFunc(HexingRodStatusID,BlinkyIconFuncNoIcon)
+SetStatusBlinkyIconFunc(HexingRodStatusID,BlinkyIconFuncSilenceIcon)
 
 //add this to the max HP getter file
 // prHexingRodStatus:
