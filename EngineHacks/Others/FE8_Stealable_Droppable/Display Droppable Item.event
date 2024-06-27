@@ -32,3 +32,14 @@ POIN Item_Table
 ALIGN 4
 NewGraphic:
 #incext Png2Dmp "bin/NewGraphic.png" --lz77
+
+PUSH
+ORG 0x278a0 // Load Icon Position
+SHORT 0x4b1e // ldr r3, =0x030
+
+ORG 0x2789e // Change Blinking Icon Size
+SHORT 0x4a22 // ldr r2, =0x8590F44
+
+ORG 0x2791C // Icon Priority and Position
+WORD 0x830
+POP

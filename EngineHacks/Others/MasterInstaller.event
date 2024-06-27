@@ -29,3 +29,6 @@
 
 #include "MinimugBoxStatusGraphic/Installer.event"
 // by Sme and SomeonePassingBy
+
+#include "NewFreezeIcon/Installer.event"
+// by SomeonePassingBy

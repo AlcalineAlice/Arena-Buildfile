@@ -11,7 +11,7 @@
 .equ xMask2,						0x1FF
 .equ yMask2,						0xFF
 .equ IconNone,						0x869 @ Also sets priority to 2.
-.equ IconStealable,					0x840 @ Also sets priority to 2.
+.equ IconStealable,					0x831 @ Also sets priority to 2.
 .equ IconStealableDroppable,    	0x861 @ Also sets priority to 2.
 .equ IconDroppable,				    0x865 @ Also sets priority to 2.
 .equ MarkStealableGoldValue,        0xFA0 //4000 in hex
