@@ -113,7 +113,7 @@
 // If uncomented, ModularEXP will be implemented.
 // Go to "ModularEXP/ModularEXP.event" and "Tables/FE8 Nightmare modules/Misc/Modular EXP Class Table.csv" to edit experience gains.
 // This patch normally conflicts with Paragon, but installing here remedies this.
-// #define MODULAR_EXP
+#define MODULAR_EXP
 
 // If uncommented, PortraitSelectionASM will be implemented.
 // Go to "PortraitSelectionASM/PortraitSelectionASM.event" to configure your modular portrait options.
@@ -290,9 +290,9 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 #define DOES_BARGAIN_STACK False
 
 //If true, will use the vanilla check in addition to the skill check.
-#define ALSO_USE_VANILLA_DANCE_CHECK False
+#define ALSO_USE_VANILLA_DANCE_CHECK True
 #define ALSO_USE_VANILLA_SUPPLY_CHECK True
-#define ALSO_USE_VANILLA_SUMMON_CHECK False
+#define ALSO_USE_VANILLA_SUMMON_CHECK True
 #define ALSO_USE_VANILLA_STEAL_CHECK True
 
 //If uncommented, Combat Arts will be enabled.
@@ -348,7 +348,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 
 // If true, Hoarders Bane will consume vulneraries from your inventory and the supply (as long as your party can access the supply). 
 // If false, it will only consume vulneraries from your inventory. 
-#define HOARDERS_BANE_USE_CONVOY True
+#define HOARDERS_BANE_USE_CONVOY False
 
 // If true, enemies/npcs with Canto+ will retreat to their safest tile with any remaining movement after their action. 
 #define CANTO_AI True

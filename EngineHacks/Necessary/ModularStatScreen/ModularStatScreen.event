@@ -197,7 +197,7 @@
 
   ALIGN 4
   NewPageNameLayout:
-    POIN $a008bc $a008d0 $a008de $a008d0
+    POIN $a008bc $a008bc $a008de $a008d0
 
   ALIGN 4
   NewPageNameTiles:
