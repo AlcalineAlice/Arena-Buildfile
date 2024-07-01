@@ -143,7 +143,7 @@ gGameSaveChunks:
 	DeclSaveChunk($0680, $0AA8, ESU_SaveGameUnits, ESU_LoadGameUnits, EMS_CHUNK_SAVEUNITS)
 
 	// Expanded Convoy (still 100 items, but saved durability)
-	DeclSaveChunk($1128, $00C8, MSa_WriteSupplyItems, MSa_ReadSupplyItems, EMS_CHUNK_CONVOYITEMS)
+	DeclSaveChunk($1128, $0190, MSa_WriteSupplyItems, MSa_ReadSupplyItems, EMS_CHUNK_CONVOYITEMS)
 	
 	// $11F0
 	
@@ -200,7 +200,7 @@ gSuspendSaveChunks:
 	DeclSaveChunk($2591, $0019, $0A3150+1, $0A3198+1)
 
 	// $25AA
-	DeclSaveChunk($25AA, $00C8, MSa_WriteSupplyItems, MSa_ReadSupplyItems)  // Convoy Items
+	DeclSaveChunk($25AA, $0190, MSa_WriteSupplyItems, MSa_ReadSupplyItems)  // Convoy Items
 	
 	// ends at $2672
 	// free up to $2E78 ($806 free bytes)
