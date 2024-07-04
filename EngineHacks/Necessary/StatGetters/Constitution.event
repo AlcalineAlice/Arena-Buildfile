@@ -4,7 +4,7 @@
 #include "_Common.event"
 ALIGN 4
 pConModifiers: // Consitition
-	POIN prAddUnitBaseCon prAddUnitConBonus prItemPassiveCon prGetItemConBonus prEquipmentBonusCon
+	POIN prAddUnitBaseCon prAddUnitConBonus prItemPassiveCon prGetItemConBonus prConBonus prEquipmentBonusCon
 	#ifdef DEBUFFS_MIN_ZERO
 	POIN prMinZero
 	#endif

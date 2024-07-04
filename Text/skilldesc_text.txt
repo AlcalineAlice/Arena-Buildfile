@@ -1895,3 +1895,30 @@ to both sides.[X]
 ## SD_Nonconforming
 Reaver Adept: Invert the effects[N]
 of the weapon triangle.[X]
+
+## SD_StrengthPlus
+Strength +2: Grants Strength +2.[X]
+
+## SD_MagicPlus
+Magic +2: Grants Magic +2.[X]
+
+## SD_SkillPlus
+Skill +3: Grants Skill +3.[X]
+
+## SD_SpeedPlus
+Speed +1: Grants Speed +1.[X]
+
+## SD_DefensePlus
+Defense +2: Grants Defense +2.[X]
+
+## SD_ResistancePlus
+Res +3: Grants Resistance +3.[X]
+
+## SD_LuckPlus
+Luck +5: Grants Luck +5.[X]
+
+## SD_HPPlus
+HP +5: Grants Max HP +5.[X]
+
+## SD_ConPlus
+Con +2: Grants Constitution +2.[X]
