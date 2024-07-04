@@ -24,6 +24,42 @@ prDelivererBonus:
 prStrongBonus:
 	rIfUnitHasSkill(StrongID)
 		rAddConst(5)
+		
+prStrengthBonus:
+	rIfUnitHasSkill(StrengthPlusID)
+		rAddConst(2)
+
+prMagicBonus:
+	rIfUnitHasSkill(MagicPlusID)
+		rAddConst(2)
+		
+prSkillBonus:
+	rIfUnitHasSkill(SkillPlusID)
+		rAddConst(3)
+		
+prSpeedBonus:
+	rIfUnitHasSkill(SpeedPlusID)
+		rAddConst(1)
+		
+prDefenseBonus:
+	rIfUnitHasSkill(DefensePlusID)
+		rAddConst(2)
+		
+prResistanceBonus:
+	rIfUnitHasSkill(ResistancePlusID)
+		rAddConst(3)
+		
+prLuckBonus:
+	rIfUnitHasSkill(LuckPlusID)
+		rAddConst(5)
+		
+prHPBonus:
+	rIfUnitHasSkill(HPPlusID)
+		rAddConst(5)
+
+prConBonus:
+	rIfUnitHasSkill(ConPlusID)
+		rAddConst(2)		
 	
 prMinZero:
 {
