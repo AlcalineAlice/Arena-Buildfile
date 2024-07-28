@@ -13,8 +13,7 @@ prHalveIfCapturing:
 	
 prDefenderBonus:
 	rIfUnitHasSkill(DefenderID)
-		rIfUnitHasState(US_RESCUING)
-			rAddConst(2)
+		rAddConst(1)
 
 prDelivererBonus:
 	rIfUnitHasSkill(DelivererID)

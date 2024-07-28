@@ -1712,8 +1712,8 @@ Concentration: If unit is not adjacent[N]
 to a foe, grants +2 damage dealt.[X]
 
 ## SD_Defender
-Defender: While unit is rescuing[N]
-ally, grants +2 to all combat stats.[X]
+All Stats +1: Grants +1 to all[N]
+combat stats (Not Con, Mov, or HP).[X]
 
 ## SD_Deliverer
 Deliverer: While unit is rescuing[N]
